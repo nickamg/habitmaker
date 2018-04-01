@@ -5,17 +5,24 @@
   <link rel="stylesheet" type="text/css" href="css\style.css">
   <meta charset="utf-8">
   <script src="js\calendario.js"></script> 
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,900" rel="stylesheet"> 
 </head>
-<body onload="obtenerFechas(fechaSeleccionada(0))">
+<body onload="obtenerFechas()">
+  <div>
+    <h1 id="nombre_mes"></h1>
+    <button class="boton" onclick="modificarFecha(-1), obtenerFechas()">Mes anterior</button>
+    <button class="boton" onclick="modificarFecha(1), obtenerFechas()">Mes siguiente</button>
+  </div>
+  <!--
   <table>
     <tr>
-      <td>L</td>
-      <td>M</td>
-      <td>X</td>
-      <td>J</td>
-      <td>V</td>
-      <td>S</td>
-      <td>D</td>
+      <td class="dia_semana">lun</td>
+      <td class="dia_semana">mar</td>
+      <td class="dia_semana">mie</td>
+      <td class="dia_semana">jue</td>
+      <td class="dia_semana">vie</td>
+      <td class="dia_semana">sab</td>
+      <td class="dia_semana">dom</td>
     </tr>
     <tr>
       <td><button id="dia1" onclick="clickDia(document.getElementById('dia1').value)"></button></td>
@@ -72,6 +79,10 @@
       <td><button id="dia42" onclick="clickDia(document.getElementById('dia42').value)"></button></td>
     </tr>
   </table>
+  -->
+  <div id="calendario_dias">
+  
+  </div>
   <div>
     <p id="texto"></p>
   </div>

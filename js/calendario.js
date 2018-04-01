@@ -1,8 +1,13 @@
 var nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var fechaGlobal = 0;
 
 function fechaActual() {
   var fecha = new Date()
   return fecha;
+}
+
+function modificarFecha(valor) {
+  fechaGlobal += valor;
 }
 
 function fechaSeleccionada(mes) {
@@ -16,7 +21,13 @@ function escribirCalendario(dia, fecha) {
   document.getElementById("dia" + dia).value = fecha.getDate() + " " + fecha.getMonth() + " " + fecha.getFullYear();
 }
 
-function obtenerFechas(fecha) {
+function escribirNombreMes() {
+  
+}
+
+function obtenerFechas() {
+  crearTablaCalendario();
+  var fecha = fechaSeleccionada(fechaGlobal);
   fecha.setDate(1);
   var desfase;
   if(fecha.getDay() != 0) {
@@ -25,9 +36,26 @@ function obtenerFechas(fecha) {
     desfase = 7;
   }
   fecha.setDate(fecha.getDate() - desfase);
-  for(var i = 0; i < 42; i++) {
+  for(var i = 1; i <= 42; i++) {
     fecha.setDate(fecha.getDate() + 1);
-    escribirCalendario((i + 1), fecha);
+    escribirCalendario(i, fecha);
+  }
+}
+
+function crearTablaCalendario() {
+  var diasSemana = ["lun", "mar", "mie", "jue", "vie", "sab", "dom"];
+  var dia = 1;
+  document.getElementById("calendario_dias").innerHTML = "<table id='tabla_dias'></table>";
+  for(var i = 1; i <= 7; i++) {
+    document.getElementById("tabla_dias").innerHTML += "<tr id='fila" + i + "'></tr>";
+    for(var j = 1; j <= 7; j++) {
+      if(i == 1) {
+        document.getElementById("fila" + i).innerHTML += "<td class='dia_semana'>" + diasSemana[j - 1] + "</td>";
+      } else {
+        document.getElementById("fila" + i).innerHTML += "<td><button id='dia" + dia + "'onclick=\x22clickDia(document.getElementById(\x27dia" + dia + "\x27).value)\x22></button></td>";
+        dia++;
+      }
+    }
   }
 }
 
