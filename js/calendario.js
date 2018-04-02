@@ -1,6 +1,12 @@
 var nombresMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 var fechaGlobal = 0;
 
+function crearCalendario() {
+  escribirNombreMes();
+  crearTablaCalendario();
+  obtenerFechas();
+}
+
 function fechaActual() {
   var fecha = new Date()
   return fecha;
@@ -17,16 +23,28 @@ function fechaSeleccionada(mes) {
 }
 
 function escribirCalendario(dia, fecha) {
-  document.getElementById("dia" + dia).innerHTML = fecha.getDate();
-  document.getElementById("dia" + dia).value = fecha.getDate() + " " + fecha.getMonth() + " " + fecha.getFullYear();
+  if(fecha.getMonth() == fechaSeleccionada(fechaGlobal).getMonth()) {
+    if(fecha.getDate() == fechaActual().getDate() && fecha.getMonth() == fechaActual().getMonth()) {
+      document.getElementById("dia" + dia).className = "dia_mes_actual hoy";
+      document.getElementById("dia" + dia).innerHTML = fecha.getDate();
+      document.getElementById("dia" + dia).value = fecha.getDate() + " " + fecha.getMonth() + " " + fecha.getFullYear();
+    } else {
+      document.getElementById("dia" + dia).className = "dia_mes_actual";
+      document.getElementById("dia" + dia).innerHTML = fecha.getDate();
+      document.getElementById("dia" + dia).value = fecha.getDate() + " " + fecha.getMonth() + " " + fecha.getFullYear();
+    }
+  } else {
+    document.getElementById("dia" + dia).className = "dia_mes_diferente";
+    document.getElementById("dia" + dia).innerHTML = fecha.getDate();
+    document.getElementById("dia" + dia).value = fecha.getDate() + " " + fecha.getMonth() + " " + fecha.getFullYear();
+  }
 }
 
 function escribirNombreMes() {
-  
+  document.getElementById("nombre_mes").innerHTML = nombresMeses[fechaSeleccionada(fechaGlobal).getMonth()] + " " + fechaSeleccionada(fechaGlobal).getFullYear();
 }
 
 function obtenerFechas() {
-  crearTablaCalendario();
   var fecha = fechaSeleccionada(fechaGlobal);
   fecha.setDate(1);
   var desfase;

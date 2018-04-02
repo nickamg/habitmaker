@@ -7,81 +7,13 @@
   <script src="js\calendario.js"></script> 
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,900" rel="stylesheet"> 
 </head>
-<body onload="obtenerFechas()">
+<body onload="crearCalendario()">
   <div>
+    <button class="boton" onclick="modificarFecha(-1), obtenerFechas(), escribirNombreMes()">Mes anterior</button>
     <h1 id="nombre_mes"></h1>
-    <button class="boton" onclick="modificarFecha(-1), obtenerFechas()">Mes anterior</button>
-    <button class="boton" onclick="modificarFecha(1), obtenerFechas()">Mes siguiente</button>
+    <button class="boton" onclick="modificarFecha(1), obtenerFechas(), escribirNombreMes()">Mes siguiente</button>
   </div>
-  <!--
-  <table>
-    <tr>
-      <td class="dia_semana">lun</td>
-      <td class="dia_semana">mar</td>
-      <td class="dia_semana">mie</td>
-      <td class="dia_semana">jue</td>
-      <td class="dia_semana">vie</td>
-      <td class="dia_semana">sab</td>
-      <td class="dia_semana">dom</td>
-    </tr>
-    <tr>
-      <td><button id="dia1" onclick="clickDia(document.getElementById('dia1').value)"></button></td>
-      <td><button id="dia2" onclick="clickDia(document.getElementById('dia2').value)"></button></td>
-      <td><button id="dia3" onclick="clickDia(document.getElementById('dia3').value)"></button></td>
-      <td><button id="dia4" onclick="clickDia(document.getElementById('dia4').value)"></button></td>
-      <td><button id="dia5" onclick="clickDia(document.getElementById('dia5').value)"></button></td>
-      <td><button id="dia6" onclick="clickDia(document.getElementById('dia6').value)"></button></td>
-      <td><button id="dia7" onclick="clickDia(document.getElementById('dia7').value)"></button></td>
-    </tr>
-    <tr>
-      <td><button id="dia8" onclick="clickDia(document.getElementById('dia8').value)"></button></td>
-      <td><button id="dia9" onclick="clickDia(document.getElementById('dia9').value)"></button></td>
-      <td><button id="dia10" onclick="clickDia(document.getElementById('dia10').value)"></button></td>
-      <td><button id="dia11" onclick="clickDia(document.getElementById('dia11').value)"></button></td>
-      <td><button id="dia12" onclick="clickDia(document.getElementById('dia12').value)"></button></td>
-      <td><button id="dia13" onclick="clickDia(document.getElementById('dia13').value)"></button></td>
-      <td><button id="dia14" onclick="clickDia(document.getElementById('dia14').value)"></button></td>
-    </tr>
-    <tr>
-      <td><button id="dia15" onclick="clickDia(document.getElementById('dia15').value)"></button></td>
-      <td><button id="dia16" onclick="clickDia(document.getElementById('dia16').value)"></button></td>
-      <td><button id="dia17" onclick="clickDia(document.getElementById('dia17').value)"></button></td>
-      <td><button id="dia18" onclick="clickDia(document.getElementById('dia18').value)"></button></td>
-      <td><button id="dia19" onclick="clickDia(document.getElementById('dia19').value)"></button></td>
-      <td><button id="dia20" onclick="clickDia(document.getElementById('dia20').value)"></button></td>
-      <td><button id="dia21" onclick="clickDia(document.getElementById('dia21').value)"></button></td>
-    </tr>
-    <tr>
-      <td><button id="dia22" onclick="clickDia(document.getElementById('dia22').value)"></button></td>
-      <td><button id="dia23" onclick="clickDia(document.getElementById('dia23').value)"></button></td>
-      <td><button id="dia24" onclick="clickDia(document.getElementById('dia24').value)"></button></td>
-      <td><button id="dia25" onclick="clickDia(document.getElementById('dia25').value)"></button></td>
-      <td><button id="dia26" onclick="clickDia(document.getElementById('dia26').value)"></button></td>
-      <td><button id="dia27" onclick="clickDia(document.getElementById('dia27').value)"></button></td>
-      <td><button id="dia28" onclick="clickDia(document.getElementById('dia28').value)"></button></td>
-    </tr>
-    <tr>
-      <td><button id="dia29" onclick="clickDia(document.getElementById('dia29').value)"></button></td>
-      <td><button id="dia30" onclick="clickDia(document.getElementById('dia30').value)"></button></td>
-      <td><button id="dia31" onclick="clickDia(document.getElementById('dia31').value)"></button></td>
-      <td><button id="dia32" onclick="clickDia(document.getElementById('dia32').value)"></button></td>
-      <td><button id="dia33" onclick="clickDia(document.getElementById('dia33').value)"></button></td>
-      <td><button id="dia34" onclick="clickDia(document.getElementById('dia34').value)"></button></td>
-      <td><button id="dia35" onclick="clickDia(document.getElementById('dia35').value)"></button></td>
-    </tr>
-    <tr>
-      <td><button id="dia36" onclick="clickDia(document.getElementById('dia36').value)"></button></td>
-      <td><button id="dia37" onclick="clickDia(document.getElementById('dia37').value)"></button></td>
-      <td><button id="dia38" onclick="clickDia(document.getElementById('dia38').value)"></button></td>
-      <td><button id="dia39" onclick="clickDia(document.getElementById('dia39').value)"></button></td>
-      <td><button id="dia40" onclick="clickDia(document.getElementById('dia40').value)"></button></td>
-      <td><button id="dia41" onclick="clickDia(document.getElementById('dia41').value)"></button></td>
-      <td><button id="dia42" onclick="clickDia(document.getElementById('dia42').value)"></button></td>
-    </tr>
-  </table>
-  -->
   <div id="calendario_dias">
-  
   </div>
   <div>
     <p id="texto"></p>

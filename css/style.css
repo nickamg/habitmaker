@@ -8,14 +8,44 @@ td {
   height: 110px;
 }
 
-td > button {
+button {
   background-color: white;
   border: none;
-  text-align: center;
-  font-size: 28px;
   cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow .33s ease-out;
+}
+
+td > button:active {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
+
+td > button:hover {
+  box-shadow: 0 5px 0 -3px black;
+}
+
+td > button:focus {
+  background-color: bisque;
+  outline: none;
+  border: none;
+}
+
+.dia_mes_actual {
   width: 100%;
   height: 100%;
+  text-align: center;
+  font-size: 28px;
+}
+
+.dia_mes_diferente {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  color: lightgrey;
 }
 
 .boton {
@@ -25,6 +55,10 @@ td > button {
 .dia_semana {
   font-weight: 900;
   height: 55px;
+}
+
+.hoy {
+  background-color: bisque;
 }
 
 #nombre_mes {
